@@ -96,6 +96,12 @@
 
       // Callback
       OUIBOUNCE_CONFIG.callback = function () {
+        try {
+          wbounceCallback();
+        }
+        catch(err) {
+        //no callback defined
+        }
         sendAnalyticsEvent("fired");
         if (isAnimationIn) {
           $(wBounceModalSub)

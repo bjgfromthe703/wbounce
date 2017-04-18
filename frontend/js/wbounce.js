@@ -88,7 +88,7 @@ return function ouibounce(el, custom_config) {
   }
 
   function isDisabled() {
-    return checkCookieValue(cookieName, 'true') && !aggressive;
+    return (checkCookieValue(cookieName, 'true') && !aggressive) || window.disableExitIntent;
   }
 
   // You can use ouibounce without passing an element

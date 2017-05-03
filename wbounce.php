@@ -62,6 +62,13 @@ if ( defined( 'KEVINW_FRAMEWORK' ) ) {
 }
 ////////////////////////////////////////////////////////////////////////////////
 
+//Disable auto-updates because this version of the plugin is an unofficial fork
+//http://stackoverflow.com/a/27074740/4441574
+add_filter('site_transient_update_plugins', 'remove_update_notification');
+function remove_update_notification($value) {
+     unset($value->response[ plugin_basename(__FILE__) ]);
+     return $value;
+}
 
 class Wbounce_Init {
 	function __construct() {
